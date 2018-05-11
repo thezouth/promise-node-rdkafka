@@ -4,7 +4,9 @@
   "description": "Wrapper of node-rdkafka to covert from callback style to promise style",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc --declaration",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/webscal3r/promise-node-rdkafka#readme",
   "optionalDependencies": {},
   "devDependencies": {
+    "@types/bunyan": "^1.8.4",
     "@types/jest": "^22.2.3",
     "@types/node": "^10.0.6",
     "jest": "^22.4.3",
@@ -30,5 +33,11 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "node-rdkafka": "^2.3.2"
-  }
+  },
+  "files": [
+    "dist",
+    "src",
+    "tsconfig.json",
+    "jest.config.js"
+  ]
 }
