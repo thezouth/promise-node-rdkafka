@@ -1,0 +1,34 @@
+{
+  "name": "promise-node-rdkafka",
+  "version": "0.1.0",
+  "description": "Wrapper of node-rdkafka to covert from callback style to promise style",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webscal3r/promise-node-rdkafka.git"
+  },
+  "keywords": [
+    "kafka"
+  ],
+  "author": "Webscal3r.club team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webscal3r/promise-node-rdkafka/issues"
+  },
+  "homepage": "https://github.com/webscal3r/promise-node-rdkafka#readme",
+  "optionalDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/node": "^10.0.6",
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.5",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "node-rdkafka": "^2.3.2"
+  }
+}
