@@ -4,6 +4,7 @@ import { Producer } from "node-rdkafka";
 
 jest.mock("node-rdkafka");
 
+
 describe("PromiseProducer", () => {
     beforeEach(() => {
         Producer.mockClear();
@@ -38,7 +39,7 @@ describe("PromiseProducer", () => {
                 done()
             });
         }, 55);
-    })
+    });
 
     describe("produce", () => {
         it("Produce result as given parameter", async () => {
@@ -62,5 +63,28 @@ describe("PromiseProducer", () => {
         function runCallback(producerParams: any) {
             resolveOnDeliveryReport(null, { opaque: { callback: producerParams[5].callback }});
         }
-    })
+    });
+
+    describe("disconnect", () => {
+        it("flush should be called before disconnected", (done) => {
+            const myProducer = new PromiseProducer({}, {});
+            const timeout = 50;
+
+            myProducer.disconnect(timeout)
+                .then(() => done())
+                .catch((err) => done.fail(err));
+
+            const producerInstance = Producer.mock.instances[0];
+            expect(producerInstance.flush).toHaveBeenCalled();
+            const flushParams = producerInstance.flush.mock.calls[0];
+            flushParams[1]();
+            expect(flushParams[0]).toBeLessThanOrEqual(timeout);
+            
+            setTimeout(() => {
+                expect(producerInstance.disconnect).toHaveBeenCalled(); 
+                const params = producerInstance.disconnect.mock.calls[0];
+                params[0]();
+            }, 10);
+        }, 60);
+    });
 });

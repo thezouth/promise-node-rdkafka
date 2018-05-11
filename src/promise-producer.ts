@@ -51,6 +51,7 @@ export default class PromiseProducer {
             await this.flush(timeout);
         } catch(err) {
             this.logger.error("Error on flush message in Kafka", err);
+            throw err;
         }
 
         await this.disconnectKafka(timeout);

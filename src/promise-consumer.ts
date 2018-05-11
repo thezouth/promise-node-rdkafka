@@ -16,7 +16,7 @@ export default class PromiseConsumer {
                 reject();
             }, timeout);
 
-            this.consumer.on("ready", () => {
+            this.consumer.once("ready", () => {
                 this.logger.info("Consumer is ready");
                 clearTimeout(timeoutTrigger);
                 resolve();
