@@ -21,7 +21,9 @@
     "url": "https://github.com/webscal3r/promise-node-rdkafka/issues"
   },
   "homepage": "https://github.com/webscal3r/promise-node-rdkafka#readme",
-  "optionalDependencies": {},
+  "optionalDependencies": {
+    "node-rdkafka": "^2.3.2"
+  },
   "devDependencies": {
     "@types/bunyan": "^1.8.4",
     "@types/jest": "^22.2.3",
@@ -31,8 +33,7 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "bunyan": "^1.8.12",
-    "node-rdkafka": "^2.3.2"
+    "bunyan": "^1.8.12"
   },
   "files": [
     "dist",
